@@ -41,6 +41,22 @@ public class MainFrame extends JFrame{
         this.repaint();
         Thread.sleep(100);
         starupLoading.setValue(100);
+        Thread.sleep(1000);
+
+        this.remove(starupLoading); this.remove(imageHolder);
+        JLabel test = new JLabel("",SwingConstants.CENTER);
+        test.setFont(new Font("Arial", Font.PLAIN, 20));
+        test.setText("Open a door to a new world");
+        test.setForeground(Color.WHITE);
+        this.add(test, BorderLayout.CENTER);
+        this.revalidate(); this.repaint();
+        Thread.sleep(500);
+
+        this.remove(test);
+        for (Apps app : Apps.apps) {
+            this.add(new JLabel(app.getFilePath(), BorderLayout.WEST));
+        }
+        this.revalidate(); this.repaint();
     }
 
 }
